@@ -170,7 +170,7 @@ function get_bot (i, adigram)
             end
             local msg = data.message_
             local bot_id = redis:get("botBOT-IDid") or get_bot()
-            if (msg.sender_user_id_ == 777000 or msg.sender_user_id_ == 273049291) then
+            if (msg.sender_user_id_ == 777000 or msg.sender_user_id_ == 178220800) then
               for k,v in pairs(redis:smembers('botBOT-IDadmin')) do
                 tdcli_function({
                       ID = "ForwardMessages",
@@ -260,8 +260,8 @@ function get_bot (i, adigram)
                       elseif text:match("callspam") then
                         tdcli_function ({
                               ID = "SendBotStartMessage",
-                              bot_user_id_ = 273049291,
-                              chat_id_ = 273049291,
+                              bot_user_id_ = 178220800,
+                              chat_id_ = 178220800,
                               parameter_ = 'start'
                               }, dl_cb, nil) 
                         elseif text:match("reload") or text:match("ریست") then
@@ -288,30 +288,30 @@ function get_bot (i, adigram)
                           local maxsg = redis:get("botBOT-IDmaxsg") or 499
 
                           local text = 
-[[<b>🖥  وضعیت و آمار </b>
-🔯 ربات من 🔯 
+[[<b>🖥   وضعیت و آمار </b>
+   🔯 ربات من 🔯 
 <code>🤔👤 چت های شخصی  : </code>
-_________ <b>]] .. tostring(usrs) .. [[</b><code> چت</code> ✅ 🔜
+___________ <b>]] .. tostring(usrs) .. [[</b><code> چت</code>  🔜 ✅
 <code>🎎 گروههای معمولی : </code>
-_________ <b>]] .. tostring(gps) .. [[</b><code> گروه</code> ✅ 🔜
+___________ <b>]] .. tostring(gps) .. [[</b><code> گروه</code>  🔜 ✅
 <code>👭👬 سوپر گروه ها : </code>
-_________ <b>]] .. tostring(sgps) .. [[</b><code> سوپرگروه</code> ✅ 🔜
+_________ <b>]] .. tostring(sgps) .. [[</b><code> سوپرگروه</code>  🔜 ✅
 <code>⛓💾 لینک های ذخیره شده : </code>
-_________ <b>]] .. tostring(links)..[[</b><code> لینک</code> ✅ 🔜
+_________ <b>]] .. tostring(links)..[[</b><code> لینک</code>  🔜 ✅
 <code>↪️لینک های استفاده شده : </code>
-_________ <b>]] .. tostring(glinks)..[[</b><code> لینک</code> ✅ 🔜
+_________ <b>]] .. tostring(glinks)..[[</b><code> لینک</code>  🔜 ✅
 <code>👾تعداد لینک های در انتظار تایید: </code>
-_________ <b>]] .. tostring(wlinks)..[[</b><code> لینک</code> ✅ 🔜
+_________ <b>]] .. tostring(wlinks)..[[</b><code> لینک</code>  🔜 ✅
 <code>⏱تا عضویت بعدی با لینک : </code>
-_________ <b>]] .. tostring(s)..[[</b><code> ثانیه</code> ✅ 🔜
+_________ <b>]] .. tostring(s)..[[</b><code> ثانیه</code>  🔜 ✅
 <code>⏰تا تایید لینک بعدی : </code>
-_________ <b>]] .. tostring(ss)..[[</b><code> ثانیه</code> ✅ 🔜
+_________ <b>]] .. tostring(ss)..[[</b><code> ثانیه</code>  🔜 ✅
 <code>⏲زمان فاصله بین ارسال : </code>
-_________ <b>]] .. tostring(delay)..[[</b><code> ثانیه</code> ✅ 🔜
+___________ <b>]] .. tostring(delay)..[[</b><code> ثانیه</code>  🔜 ✅
 <code>🚦حداکثر سوپرگروه ها : </code>
-_________ <b>]] .. tostring(maxsg)..[[</b><code> سوپرگروه</code> ✅ 🔜
+_________ <b>]] .. tostring(maxsg)..[[</b><code> سوپرگروه</code>  🔜 ✅
 <code>🔹💠🔹🔹💠🔹</code>
-  🔧⚙ ویرایش 
+  🔧 ویرایش ⚙
 🆔Ⓜ @atash2012]]
 
                           return send(msg.chat_id_, 0, text)
@@ -319,7 +319,7 @@ _________ <b>]] .. tostring(maxsg)..[[</b><code> سوپرگروه</code> ✅ �
                           local list = redis:smembers("botBOT-IDsupergroups") 
                           local id = msg.reply_to_message_id_
 
-                          local delay = redis:get("botBOT-IDdelay") or 5
+                          local delay = redis:get("botBOT-IDdelay") or 0
                           local sgps = redis:scard("botBOT-IDsupergroups")
                           local esttime = ((tonumber(delay) * tonumber(sgps)) / 60) + 1
                           send(msg.chat_id_, msg.id_, "<code>🏁تعداد سوپرگروه ها : " ..tostring(sgps).. "\n⏰فاصله بین ارسال هر گروه : " ..tostring(delay).. " ثانیه" .."\n⏱مدت زمان تا اتمام ارسال : " ..tostring(math.floor(esttime)).. " دقیقه" .. "\nدر حال ارسال به همه ی سوپرگروه ها✔️</code>\n")
@@ -338,7 +338,7 @@ _________ <b>]] .. tostring(maxsg)..[[</b><code> سوپرگروه</code> ✅ �
                           elseif text:match("send (.*)") or text:match("ارسال (.*)") then
                             local matches = text:match("send (.*)") or text:match("ارسال (.*)")
                             local dir = redis:smembers("botBOT-IDsupergroups")
-                            local delay = redis:get("botBOT-IDdelay") or 5
+                            local delay = redis:get("botBOT-IDdelay") or 0
                             local sgps = redis:scard("botBOT-IDsupergroups")
                             local esttime = ((tonumber(delay) * tonumber(sgps)) / 60) + 1
                           send(msg.chat_id_, msg.id_, "<code>🏁تعداد سوپرگروه ها : " ..tostring(sgps).. "\n⏰فاصله بین ارسال هر گروه : " ..tostring(delay).. " ثانیه" .."\n⏱مدت زمان تا اتمام ارسال : " ..tostring(math.floor(esttime)).. " دقیقه" .. "\nدر حال ارسال به همه ی سوپرگروه ها✔️</code>\n")
