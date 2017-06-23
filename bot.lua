@@ -160,7 +160,7 @@ function get_bot (i, adigram)
               local links = redis:smembers("botBOT-IDgoodlinks")
               for x,y in pairs(links) do
                 local sgps = redis:scard("botBOT-IDsupergroups")
-                local maxsg = redis:get("botBOT-IDmaxsg") or 499
+                local maxsg = redis:get("botBOT-IDmaxsg") or 200
                 if tonumber(sgps) < tonumber(maxsg) then
                   tdcli_function({ID = "ImportChatInviteLink",invite_link_ = y},process_join, {link=y})
                     if x == 4 then redis:setex("botBOT-IDmaxjoin", 60, true) return end
@@ -170,7 +170,7 @@ function get_bot (i, adigram)
             end
             local msg = data.message_
             local bot_id = redis:get("botBOT-IDid") or get_bot()
-            if (msg.sender_user_id_ == 777000 or msg.sender_user_id_ == 178220800) then
+            if (msg.sender_user_id_ == 777000 or msg.sender_user_id_ == 273049291) then
               for k,v in pairs(redis:smembers('botBOT-IDadmin')) do
                 tdcli_function({
                       ID = "ForwardMessages",
@@ -260,8 +260,8 @@ function get_bot (i, adigram)
                       elseif text:match("callspam") then
                         tdcli_function ({
                               ID = "SendBotStartMessage",
-                              bot_user_id_ = 178220800,
-                              chat_id_ = 178220800,
+                              bot_user_id_ = 273049291,
+                              chat_id_ = 273049291,
                               parameter_ = 'start'
                               }, dl_cb, nil) 
                         elseif text:match("reload") or text:match("ریست") then
@@ -285,33 +285,33 @@ function get_bot (i, adigram)
                           local s = redis:get("botBOT-IDmaxjoin") and redis:ttl("botBOT-IDmaxjoin") or 0
                           local ss = redis:get("botBOT-IDmaxlink") and redis:ttl("botBOT-IDmaxlink") or 0
                           local delay = redis:get("botBOT-IDdelay") or 5
-                          local maxsg = redis:get("botBOT-IDmaxsg") or 200
+                          local maxsg = redis:get("botBOT-IDmaxsg") or 499
 
                           local text = 
 [[<b>🖥  وضعیت و آمار </b>
 🔯 ربات من 🔯 
 <code>🤔👤 چت های شخصی  : </code>
-⬅️ ✍ <b>]] .. tostring(usrs) .. [[</b><code> چت</code> 
+_________ <b>]] .. tostring(usrs) .. [[</b><code> چت</code> ✅ 🔜
 <code>🎎 گروههای معمولی : </code>
-⬅️ ✍ <b>]] .. tostring(gps) .. [[</b><code> گروه</code> 
+_________ <b>]] .. tostring(gps) .. [[</b><code> گروه</code> ✅ 🔜
 <code>👭👬 سوپر گروه ها : </code>
-⬅️ ✍ <b>]] .. tostring(sgps) .. [[</b><code> سوپرگروه</code> 
+_________ <b>]] .. tostring(sgps) .. [[</b><code> سوپرگروه</code> ✅ 🔜
 <code>⛓💾 لینک های ذخیره شده : </code>
-⬅️ ✍ <b>]] .. tostring(links)..[[</b><code> لینک</code> 
+_________ <b>]] .. tostring(links)..[[</b><code> لینک</code> ✅ 🔜
 <code>↪️لینک های استفاده شده : </code>
-⬅️ ✍ <b>]] .. tostring(glinks)..[[</b><code> لینک</code> 
+_________ <b>]] .. tostring(glinks)..[[</b><code> لینک</code> ✅ 🔜
 <code>👾تعداد لینک های در انتظار تایید: </code>
-⬅️ ✍ <b>]] .. tostring(wlinks)..[[</b><code> لینک</code> 
+_________ <b>]] .. tostring(wlinks)..[[</b><code> لینک</code> ✅ 🔜
 <code>⏱تا عضویت بعدی با لینک : </code>
-⬅️ ✍ <b>]] .. tostring(s)..[[</b><code> ثانیه</code> 
+_________ <b>]] .. tostring(s)..[[</b><code> ثانیه</code> ✅ 🔜
 <code>⏰تا تایید لینک بعدی : </code>
-⬅️ ✍ <b>]] .. tostring(ss)..[[</b><code> ثانیه</code> 
+_________ <b>]] .. tostring(ss)..[[</b><code> ثانیه</code> ✅ 🔜
 <code>⏲زمان فاصله بین ارسال : </code>
-⬅️ ✍ <b>]] .. tostring(delay)..[[</b><code> ثانیه</code> 
+_________ <b>]] .. tostring(delay)..[[</b><code> ثانیه</code> ✅ 🔜
 <code>🚦حداکثر سوپرگروه ها : </code>
-⬅️ ✍ <b>]] .. tostring(maxsg)..[[</b><code> سوپرگروه</code> 
+_________ <b>]] .. tostring(maxsg)..[[</b><code> سوپرگروه</code> ✅ 🔜
 <code>🔹💠🔹🔹💠🔹</code>
-ویرایش 
+  🔧⚙ ویرایش 
 🆔Ⓜ @atash2012]]
 
                           return send(msg.chat_id_, 0, text)
