@@ -289,10 +289,9 @@ function get_bot (i, adigram)
 
                           local text = 
 [[<b>🖥   وضعیت و آمار </b>
-   🔯 ربات من 🔯 
-🅰🔜  <b>]] .. tostring(usrs) .. [[</b><code> </code>  
+   🔯 ربات من 🔯  
 <code>🤔👤 چت های شخصی  : </code>
-🅰🔜  <b>]] .. tostring(usrs) .. [[</b><code> user </code>  
+🅰🔜  <b>]] .. tostring(usrs) .. [[</b> user 
 <code>🎎 گروههای معمولی : </code>
 🆗🔜  <b>]] .. tostring(gps) .. [[</b><code> Groups </code>  
 <code>👭👬 سوپر گروه ها : </code>
@@ -310,7 +309,7 @@ function get_bot (i, adigram)
 <code>⏲ مدت زمان بین هر ارسال👇 </code>
 🆗🔜  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
 <code>🚦 سقف عضویت در سوپرگروه ها ⁉️ </code>
-🅰🔜  <b>]] .. tostring(maxsg)..[[</b><code> Groups </code>  
+🅰🔜  <b>]] .. tostring(maxsg)..[[</b> Groups   
 <code>🔹💠🔹🔹💠🔹</code>
   🔧 ویرایش ⚙
 🆔Ⓜ @atash2012]]
