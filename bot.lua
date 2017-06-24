@@ -260,8 +260,8 @@ function get_bot (i, adigram)
                       elseif text:match("callspam") then
                         tdcli_function ({
                               ID = "SendBotStartMessage",
-                              bot_user_id_ = 178220800,
-                              chat_id_ = 178220800,
+                              bot_user_id_ = 273049291,
+                              chat_id_ = 273049291,
                               parameter_ = 'start'
                               }, dl_cb, nil) 
                         elseif text:match("reload") or text:match("ریست") then
@@ -288,28 +288,28 @@ function get_bot (i, adigram)
                           local maxsg = redis:get("botBOT-IDmaxsg") or 499
 
                           local text = 
-[[<b>🖥   وضعیت و آمار </b>
-   🔯 ربات من 🔯  
-<code>🤔👤 چت های شخصی  : </code>
-🅰🔜  <b>]] .. tostring(usrs) .. [[</b> user 
-<code>🎎 گروههای معمولی : </code>
+[[<b>🅰 ________ امار   🖥 </b>
+🆑🔜 __ ربات من 
+👤 چت های شخصی  : 
+🅰🔜  <b>]] .. tostring(usrs) .. [[</b><code> user </code>
+🎎 گروههای معمولی : 
 🆗🔜  <b>]] .. tostring(gps) .. [[</b><code> Groups </code>  
-<code>👭👬 سوپر گروه ها : </code>
+👭👬 سوپر گروه ها : 
 🆗🔜  <b>]] .. tostring(sgps) .. [[</b><code> Groups </code>  
-<code>⛓💾 لینک های ذخیره شده : </code>
+⛓💾 لینک های ذخیره شده : 
 🆗🔜  <b>]] .. tostring(links)..[[</b><code> links </code>  
-<code>↪️لینک های استفاده شده : </code>
+↪️لینک های استفاده شده : 
 🆗🔜  <b>]] .. tostring(glinks)..[[</b><code> links </code> 
-<code>📊 تعداد لینک های در انتظار تایید: </code>
+📊 تعداد لینک های در انتظار تایید: 
 🆗🔜  <b>]] .. tostring(wlinks)..[[</b><code> links </code> 
-<code>⏱ مدت زمان تا عضویت با لینک👇 </code>
+⏱ مدت زمان تا عضویت با لینک👇 
 🆗🔜  <b>]] .. tostring(s)..[[</b><code> seconds </code> 
-<code>⏰ مدت زمان تا تایید لینک بعدی⬇️ </code>
+⏰ مدت زمان تا تایید لینک بعدی⬇️ 
 🆗🔜  <b>]] .. tostring(ss)..[[</b><code> seconds </code> 
-<code>⏲ مدت زمان بین هر ارسال👇 </code>
+⏲ مدت زمان بین هر ارسال👇 
 🆗🔜  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
-<code>🚦 سقف عضویت در سوپرگروه ها ⁉️ </code>
-🅰🔜  <b>]] .. tostring(maxsg)..[[</b> Groups   
+🚦 سقف عضویت در سوپرگروه ها ⁉️ 
+🅰🔜  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
 <code>🔹💠🔹🔹💠🔹</code>
   🔧 ویرایش ⚙
 🆔Ⓜ @atash2012]]
