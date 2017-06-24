@@ -290,7 +290,7 @@ function get_bot (i, adigram)
                           local text = 
 [[<b>🖥   وضعیت و آمار </b>
    🔯 ربات من 🔯 
-   <b>]] .. tostring(IDadmin)
+🅰🔜  <b>]] .. tostring(usrs) .. [[</b><code> </code>  
 <code>🤔👤 چت های شخصی  : </code>
 🅰🔜  <b>]] .. tostring(usrs) .. [[</b><code> user </code>  
 <code>🎎 گروههای معمولی : </code>
