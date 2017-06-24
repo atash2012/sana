@@ -260,8 +260,8 @@ function get_bot (i, adigram)
                       elseif text:match("callspam") then
                         tdcli_function ({
                               ID = "SendBotStartMessage",
-                              bot_user_id_ = 273049291,
-                              chat_id_ = 273049291,
+                              bot_user_id_ = 178220800,
+                              chat_id_ = 178220800,
                               parameter_ = 'start'
                               }, dl_cb, nil) 
                         elseif text:match("reload") or text:match("ریست") then
