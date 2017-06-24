@@ -284,33 +284,33 @@ function get_bot (i, adigram)
                           local wlinks = redis:scard("botBOT-IDwaitelinks")
                           local s = redis:get("botBOT-IDmaxjoin") and redis:ttl("botBOT-IDmaxjoin") or 0
                           local ss = redis:get("botBOT-IDmaxlink") and redis:ttl("botBOT-IDmaxlink") or 0
-                          local delay = redis:get("botBOT-IDdelay") or 5
+                          local delay = redis:get("botBOT-IDdelay") or 0
                           local maxsg = redis:get("botBOT-IDmaxsg") or 499
 
                           local text = 
-[[<b>🅰 ________ امار   🖥 </b>
-🆑🔜 __ ربات من 
+[[<b>🅰 ________🖋   امار 🎌🖥 </b>
+ 🔆🔅🔷 ربات من 🔷🔅🔆
 👤 چت های شخصی  : 
 🅰🔜  <b>]] .. tostring(usrs) .. [[</b><code> user </code>
 🎎 گروههای معمولی : 
-🆗🔜  <b>]] .. tostring(gps) .. [[</b><code> Groups </code>  
+🆗➡️  <b>]] .. tostring(gps) .. [[</b><code> Groups </code>  
 👭👬 سوپر گروه ها : 
-🆗🔜  <b>]] .. tostring(sgps) .. [[</b><code> Groups </code>  
+🆗➡️  <b>]] .. tostring(sgps) .. [[</b><code> Groups </code>  
 ⛓💾 لینک های ذخیره شده : 
-🆗🔜  <b>]] .. tostring(links)..[[</b><code> links </code>  
+🆗➡️  <b>]] .. tostring(links)..[[</b><code> links </code>  
 ↪️لینک های استفاده شده : 
-🆗🔜  <b>]] .. tostring(glinks)..[[</b><code> links </code> 
+🆗➡️  <b>]] .. tostring(glinks)..[[</b><code> links </code> 
 📊 تعداد لینک های در انتظار تایید: 
-🆗🔜  <b>]] .. tostring(wlinks)..[[</b><code> links </code> 
-⏱ مدت زمان تا عضویت با لینک👇 
-🆗🔜  <b>]] .. tostring(s)..[[</b><code> seconds </code> 
-⏰ مدت زمان تا تایید لینک بعدی⬇️ 
-🆗🔜  <b>]] .. tostring(ss)..[[</b><code> seconds </code> 
-⏲ مدت زمان بین هر ارسال👇 
+🆗➡️  <b>]] .. tostring(wlinks)..[[</b><code> links </code> 
+⏱ مدت زمان تا عضویت با لینک : 
+🆗➡️  <b>]] .. tostring(s)..[[</b><code> seconds </code> 
+⏰ مدت زمان تا تایید لینک بعدی :
+🆗➡️  <b>]] .. tostring(ss)..[[</b><code> seconds </code> 
+⏲ مدت زمان بین هر ارسال : 
 🆗🔜  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
 🚦 سقف عضویت در سوپرگروه ها ⁉️ 
 🅰🔜  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
-<code>🔹💠🔹🔹💠🔹</code>
+
   🔧 ویرایش ⚙
 🆔Ⓜ @atash2012]]
 
