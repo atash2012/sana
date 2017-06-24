@@ -290,27 +290,26 @@ function get_bot (i, adigram)
                           local text = 
 [[<b>🖥   وضعیت و آمار </b>
    🔯 ربات من 🔯 
- <b>]] .. tostring(IDadmin) .. [[
 <code>🤔👤 چت های شخصی  : </code>
-🅰🔜  <b>]] .. tostring(usrs) .. [[</b><code> user </code>  
+___________ <b>]] .. tostring(usrs) .. [[</b><code> چت</code>  🔜 ✅
 <code>🎎 گروههای معمولی : </code>
-🆗🔜  <b>]] .. tostring(gps) .. [[</b><code> Groups </code>  
+___________ <b>]] .. tostring(gps) .. [[</b><code> گروه</code>  🔜 ✅
 <code>👭👬 سوپر گروه ها : </code>
-🆗🔜  <b>]] .. tostring(sgps) .. [[</b><code> Groups </code>  
+_________ <b>]] .. tostring(sgps) .. [[</b><code> سوپرگروه</code>  🔜 ✅
 <code>⛓💾 لینک های ذخیره شده : </code>
-🆗🔜  <b>]] .. tostring(links)..[[</b><code> links </code>  
+_________ <b>]] .. tostring(links)..[[</b><code> لینک</code>  🔜 ✅
 <code>↪️لینک های استفاده شده : </code>
-🆗🔜  <b>]] .. tostring(glinks)..[[</b><code> links </code> 
-<code>📊 تعداد لینک های در انتظار تایید: </code>
-🆗🔜  <b>]] .. tostring(wlinks)..[[</b><code> links </code> 
-<code>⏱ مدت زمان تا عضویت با لینک👇 </code>
-🆗🔜  <b>]] .. tostring(s)..[[</b><code> seconds </code> 
-<code>⏰ مدت زمان تا تایید لینک بعدی⬇️ </code>
-🆗🔜  <b>]] .. tostring(ss)..[[</b><code> seconds </code> 
-<code>⏲ مدت زمان بین هر ارسال👇 </code>
-🆗🔜  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
-<code>🚦 سقف عضویت در سوپرگروه ها ⁉️ </code>
-🅰🔜  <b>]] .. tostring(maxsg)..[[</b><code> Groups </code>  
+_________ <b>]] .. tostring(glinks)..[[</b><code> لینک</code>  🔜 ✅
+<code>👾تعداد لینک های در انتظار تایید: </code>
+_________ <b>]] .. tostring(wlinks)..[[</b><code> لینک</code>  🔜 ✅
+<code>⏱تا عضویت بعدی با لینک : </code>
+_________ <b>]] .. tostring(s)..[[</b><code> ثانیه</code>  🔜 ✅
+<code>⏰تا تایید لینک بعدی : </code>
+_________ <b>]] .. tostring(ss)..[[</b><code> ثانیه</code>  🔜 ✅
+<code>⏲زمان فاصله بین ارسال : </code>
+___________ <b>]] .. tostring(delay)..[[</b><code> ثانیه</code>  🔜 ✅
+<code>🚦حداکثر سوپرگروه ها : </code>
+_________ <b>]] .. tostring(maxsg)..[[</b><code> سوپرگروه</code>  🔜 ✅
 <code>🔹💠🔹🔹💠🔹</code>
   🔧 ویرایش ⚙
 🆔Ⓜ @atash2012]]
