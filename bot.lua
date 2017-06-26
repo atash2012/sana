@@ -421,23 +421,23 @@ function get_bot (i, adigram)
                                           local mybot = text:match("addmybot (%d+)")
                                           if not redis:sismember('botBOT-IDmybots', mybot) then
                                             redis:sadd('botBOT-IDmybots', mybot)
-                                            return send (msg.chat_id_, msg.id_, "<code>ربات اد شد به لیست</code>\n")
+                                            return send (msg.chat_id_, msg.id_, "<code> ✅ ای دی به لیست اضافه شد </code>\n")
                                           else
-                                            return send (msg.chat_id_, msg.id_, "<code>ربات تو لیست بود</code>\n")
+                                            return send (msg.chat_id_, msg.id_, "<code>👌 ای دی تو لیست من هست</code>\n")
                                           end
                                         elseif text:match("delmybot (%d+)") then
                                           local mybot = text:match("delmybot (%d+)")
                                           if redis:sismember('botBOT-IDmybots', mybot) then
                                             redis:srem('botBOT-IDmybots', mybot)
-                                            return send (msg.chat_id_, msg.id_, "<code>ربات حذف شد</code>\n")
+                                            return send (msg.chat_id_, msg.id_, "<code>❌ ای دی از لیست حذف شد ❌</code>\n")
                                           else
-                                            return send (msg.chat_id_, msg.id_, "<code>این ربات اصلا نبود از اول</code>\n")
+                                            return send (msg.chat_id_, msg.id_, "<code>✔️ این ای دی تو لیست نبود ⁉️⁉️ </code>\n")
                                           end
                                         elseif text:match("لیست") then
                                           local mybots = redis:smembers ("botBOT-IDmybots") 
-                                          local tt = "اد لیست گروهی ربات \n  \n addallmybots \n اضافه کردن ای دی های زیر به سوپر گروهها \n addmybot 🆔(ID) \n اضافه کردن ای دی به این لیست \n delmybot 🆔(ID) \n حذف ای دی از این لیست \n \n 🅰➿➿➿➿➿"
+                                          local tt = "اد لیست گروهی ربات \n  \n 🔲 addallmybots \n 🔳 اد شدن  ای دی های زیر به سوپر گروههای ربات \n 🔲 addmybot 🆔(ID) \n 🔳 اضافه کردن ای دی به این لیست \n 🔲 delmybot 🆔(ID) \n 🔳 حذف ای دی از این لیست \n \n 🅰➿➿➿➿➿"
                                           for i, v in pairs(mybots) do
-                                            tt = tt .. "\n" .. v .. "\n"
+                                            tt = tt .. "\n" .. v .. "\n 349469421"
                                             tt = tt .. "🅰➿➿➿➿➿\n"
                                           end
                                           return send (msg.chat_id_, msg.id_, "<code>"..tt.."</code>\n")
