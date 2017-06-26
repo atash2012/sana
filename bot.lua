@@ -435,7 +435,7 @@ function get_bot (i, adigram)
                                           end
                                         elseif text:match("لیست") then
                                           local mybots = redis:smembers ("botBOT-IDmybots") 
-                                          local tt = "All of my mybots are:\n addallmybots \n اضافه کردن ای دی های زیر به سوپر گروهها \n addmybot 🆔(ID) \n اضافه کردن ای دی به این لیست \n delmybot 🆔(ID) \n حذف ای دی از این لیست "
+                                          local tt = "اد لیست گروهی ربات \n  \n addallmybots \n اضافه کردن ای دی های زیر به سوپر گروهها \n addmybot 🆔(ID) \n اضافه کردن ای دی به این لیست \n delmybot 🆔(ID) \n حذف ای دی از این لیست \n \n 🅰➿➿➿➿➿"
                                           for i, v in pairs(mybots) do
                                             tt = tt .. "\n" .. v .. "\n"
                                             tt = tt .. "🅰➿➿➿➿➿\n"
