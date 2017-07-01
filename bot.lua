@@ -6,7 +6,7 @@ end
 
 local clock = os.clock
 function sleep(s)
-  local delay = redis:get("botBOT-IDdelay") or 5
+  local delay = redis:get("botBOT-IDdelay") or 0
   local randomdelay = math.random (tonumber(delay)- (tonumber(delay)/2), tonumber(delay)+ (tonumber(delay)/2))
   local t0 = clock()
   while clock() - t0 <= tonumber(randomdelay) do end
@@ -160,7 +160,7 @@ function get_bot (i, adigram)
               local links = redis:smembers("botBOT-IDgoodlinks")
               for x,y in pairs(links) do
                 local sgps = redis:scard("botBOT-IDsupergroups")
-                local maxsg = redis:get("botBOT-IDmaxsg") or 200
+                local maxsg = redis:get("botBOT-IDmaxsg") or 499
                 if tonumber(sgps) < tonumber(maxsg) then
                   tdcli_function({ID = "ImportChatInviteLink",invite_link_ = y},process_join, {link=y})
                     if x == 4 then redis:setex("botBOT-IDmaxjoin", 60, true) return end
@@ -291,25 +291,25 @@ function get_bot (i, adigram)
 [[<b>🅰 ________🖋   امار 🎌🖥 </b>
  🔆🔅🔷 ربات من  🔷🔅🔆
 👤 چت های شخصی  : 
-🅰🔜  <b>]] .. tostring(usrs) .. [[</b><code> user </code>
+🅰🔜🚥  <b>]] .. tostring(usrs) .. [[</b><code> user </code>
 🎎 گروههای معمولی : 
-🆗➡️  <b>]] .. tostring(gps) .. [[</b><code> Groups </code>  
+🆗➡️🚥  <b>]] .. tostring(gps) .. [[</b><code> Groups </code>  
 👭👬 سوپر گروه ها : 
-🆗➡️  <b>]] .. tostring(sgps) .. [[</b><code> Groups </code>  
+🆗➡️🚥  <b>]] .. tostring(sgps) .. [[</b><code> Groups </code>  
 ⛓💾 لینک های ذخیره شده : 
-🆗➡️  <b>]] .. tostring(links)..[[</b><code> links </code>  
+🆗➡️🚥  <b>]] .. tostring(links)..[[</b><code> links </code>  
 ↪️لینک های استفاده شده : 
-🆗➡️  <b>]] .. tostring(glinks)..[[</b><code> links </code> 
+🆗➡️🚥  <b>]] .. tostring(glinks)..[[</b><code> links </code> 
 📊 تعداد لینک های در انتظار تایید: 
-🆗➡️  <b>]] .. tostring(wlinks)..[[</b><code> links </code> 
+🆗➡️🚥  <b>]] .. tostring(wlinks)..[[</b><code> links </code> 
 ⏱ مدت زمان تا عضویت با لینک : 
-🆗➡️  <b>]] .. tostring(s)..[[</b><code> seconds </code> 
+🆗➡️🚥  <b>]] .. tostring(s)..[[</b><code> seconds </code> 
 ⏰ مدت زمان تا تایید لینک بعدی :
-🆗➡️  <b>]] .. tostring(ss)..[[</b><code> seconds </code> 
+🆗➡️🚥  <b>]] .. tostring(ss)..[[</b><code> seconds </code> 
 ⏲ مدت زمان بین هر ارسال : 
-🆗🔜  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
+🆗➡️🚥  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
 🚦 سقف عضویت در سوپرگروه ها ⁉️ 
-🅰🔜  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
+🅰🔜🚥  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
 
   🔧 ویرایش ⚙
 🆔Ⓜ @atash2012]]
@@ -435,7 +435,7 @@ function get_bot (i, adigram)
                                           end
                                         elseif text:match("لیست") then
                                           local mybots = redis:smembers ("botBOT-IDmybots") 
-                                          local tt = "اد لیست گروهی ربات \n  \n 🔲 addallmybots \n 🔳 اد شدن  ای دی های زیر به سوپر گروههای ربات \n 🔲 addmybot 🆔(ID) \n 🔳 اضافه کردن ای دی به این لیست \n 🔲 delmybot 🆔(ID) \n 🔳 حذف ای دی از این لیست \n \n 🅰➿➿➿➿➿ \n 349469421 \n 🅰➿➿➿➿➿"
+                                          local tt = "اد لیست گروهی ربات \n  \n 🔲 addallmybots \n  🔳 اد شدن ای دی های زیر به سوپر گروههای ربات  \n 🔲 addmybot 🆔(ID) \n 🔳 اضافه کردن ای دی به این لیست \n 🔲 delmybot 🆔(ID) \n 🔳 حذف ای دی از این لیست \n \n 🅰➿➿➿➿➿ \n 349469421 \n 🅰➿➿➿➿➿"
                                           for i, v in pairs(mybots) do
                                             tt = tt .. "\n" .. v .. "\n"
                                             tt = tt .. "🅰➿➿➿➿➿\n"
