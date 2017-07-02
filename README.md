@@ -10,6 +10,15 @@
 
 # نصب
 
+1-ارسال در یک خط
+
+git clone https://github.com/atash2012/tabchi cd tabchi chmod +x bot. /bot install
+
+y
+را بزنید تا به نصب ادامه دهید
+
+2- ارسال گزینه های زیر بصورت پشت سر هم  با اینتر
+
 ```sh
 git clone https://github.com/atash2012/tabchi
 cd tabchi
