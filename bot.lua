@@ -286,10 +286,11 @@ function get_bot (i, adigram)
                           local ss = redis:get("botBOT-IDmaxlink") and redis:ttl("botBOT-IDmaxlink") or 0
                           local delay = redis:get("botBOT-IDdelay") or 0
                           local maxsg = redis:get("botBOT-IDmaxsg") or 499
+						  local fullname = redis:get("botBOT-IDfname") .. " " ..  redis:get("botBOT-IDlanme")
 						  
                           local text = 
 [[<b>🅰 ________🖋   امار 🎌🖥 </b>
- 🔆🔅🔷 ربات من  🔷🔅🔆
+ 🔆🔅🔷 ربات  🔷🔅🔆 \n '..d.sender_user_id_..' \n  ]] .. fullname ..  [[ 
 👤 چت های شخصی  : 
 🅰🔜🚥  <b>]] .. tostring(usrs) .. [[</b><code> user </code>
 🎎 گروههای معمولی : 
@@ -310,7 +311,6 @@ function get_bot (i, adigram)
 🆗➡️🚥  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
 🚦 سقف عضویت در سوپرگروه ها ⁉️ 
 🅰🔜🚥  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
-
   🔧 ویرایش ⚙
 🆔Ⓜ @atash2012]]
 
