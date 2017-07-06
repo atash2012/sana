@@ -526,8 +526,7 @@ function tdcli_update_callback(data)
 🆗➡️🚥 <b>]] .. tostring(contacts)..[[</b><code> user </code> 
 ⛓💾 لینک های ذخیره شده : 
 🆗➡️🚥 <b>]] .. tostring(links)..[[</b><code> links </code>
- 🔧 ویرایش ⚙
- 🆔Ⓜ @atash2012]]
+ 🔧 ویرایش ⚙ \n 🆔Ⓜ @atash2012]]
 					return send(msg.chat_id_, 0, text)
 				elseif (text:match("^(ارسال به) (.*)$") and msg.reply_to_message_id_ ~= 0) then
 					local matches = text:match("^ارسال به (.*)$")
