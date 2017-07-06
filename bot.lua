@@ -670,8 +670,7 @@ function tdcli_update_callback(data)
                                           for i, v in pairs(mybots) do
                                             tt = tt .. "\n" .. v .. "\n"
                                             tt = tt .. "🅰➿➿➿➿➿\n"
-                                          end
-										  
+                                          end	  
 					return send(msg.chat_id_, msg.id_, "<i>کاربر مورد نظر به تمام گروه های من دعوت شد</i>")
 				elseif (text:match("^(انلاین)$") and not msg.forward_info_)then
 					return tdcli_function({
