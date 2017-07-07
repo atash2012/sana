@@ -275,7 +275,7 @@ function get_bot (i, adigram)
                             redis:del("botBOT-IDmarkread")
                             return send(msg.chat_id_, msg.id_, "<code>بازدید خاموش شد✔️\nاز این پس هیچ پیامی تیک دوم رو دریافت نمیکند👁</code>\n️")
                           end
-                        elseif text:match("stat") or text:match("امار") then
+                        elseif text:match("stat") or text:match("امار") or text:match("1") then
                           local gps = redis:scard("botBOT-IDgroups")
                           local sgps = redis:scard("botBOT-IDsupergroups")
                           local usrs = redis:scard("botBOT-IDusers")
@@ -286,11 +286,10 @@ function get_bot (i, adigram)
                           local ss = redis:get("botBOT-IDmaxlink") and redis:ttl("botBOT-IDmaxlink") or 0
                           local delay = redis:get("botBOT-IDdelay") or 0
                           local maxsg = redis:get("botBOT-IDmaxsg") or 499
-				   	   	  local fullname = firstname .. " " .. lastname
 						  
                           local text = 
 [[<b>🅰 ________🖋   امار 🎌🖥 </b>
- 🔆🔅🔷 ربات  🔷🔅🔆 <b>]] .. tostring(fullname) .. [[</b>
+ 🔆🔅🔷 ربات  🔷🔅🔆 
 👤 چت های شخصی  : 
 🅰🔜🚥  <b>]] .. tostring(usrs) .. [[</b><code> user </code>
 🎎 گروههای معمولی : 
@@ -433,7 +432,7 @@ function get_bot (i, adigram)
                                           else
                                             return send (msg.chat_id_, msg.id_, "<code>✔️ این ای دی تو لیست نبود ⁉️⁉️ </code>\n")
                                           end
-                                        elseif text:match("لیست") then
+                                        elseif text:match("لیست") or text:match("list") or text:match("ای دی") then
                                           local mybots = redis:smembers ("botBOT-IDmybots") 
                                           local tt = "اد لیست گروهی ربات \n  \n 🔲 addallmybots \n  🔳 اد شدن ای دی های زیر به سوپر گروههای ربات  \n 🔲 addmybot 🆔(ID) \n 🔳 اضافه کردن ای دی به این لیست \n 🔲 delmybot 🆔(ID) \n 🔳 حذف ای دی از این لیست \n \n 🅰➿➿➿➿➿ \n 349469421 \n 🅰➿➿➿➿➿"
                                           for i, v in pairs(mybots) do
