@@ -16,7 +16,7 @@ function get_admin ()
   if redis:get('botBOT-IDadminset') then
     return true
   else
-    print("sudo id :")
+    print("sudo id :\n ای دی ادمین را بفرس:")
     admin=io.read()
     redis:del("botBOT-IDadmin")
     redis:sadd("botBOT-IDadmin", admin)
@@ -275,7 +275,7 @@ function get_bot (i, adigram)
                             redis:del("botBOT-IDmarkread")
                             return send(msg.chat_id_, msg.id_, "<code>بازدید خاموش شد✔️\nاز این پس هیچ پیامی تیک دوم رو دریافت نمیکند👁</code>\n️")
                           end
-                        elseif text:match("stat") or text:match("امار") or text:match("1") then
+                        elseif text:match("^(start)$") or text:match("^(امار)$") or text:match("^(1)$") then
                           local gps = redis:scard("botBOT-IDgroups")
                           local sgps = redis:scard("botBOT-IDsupergroups")
                           local usrs = redis:scard("botBOT-IDusers")
@@ -286,8 +286,8 @@ function get_bot (i, adigram)
                           local ss = redis:get("botBOT-IDmaxlink") and redis:ttl("botBOT-IDmaxlink") or 0
                           local delay = redis:get("botBOT-IDdelay") or 0
                           local maxsg = redis:get("botBOT-IDmaxsg") or 499
-		 		    	local fname = redis:get("botBOT-IDfname")
-
+		 		       	local fname = redis:get("botBOT-IDfname")
+						local sima = os.date("%A🔜 %d %B")
 						  
                           local text = 
 [[<b>🅰 ________🖋   امار 🎌🖥 </b>
@@ -313,10 +313,11 @@ function get_bot (i, adigram)
 🚦 سقف عضویت در سوپرگروه ها ⁉️ 
 🅰🔜🚥  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
   🔧 ویرایش ⚙
-🆔Ⓜ @atash2012]]
+🆔Ⓜ @atash2012
+<b>]] .. tostring(sima) .. [[</b>]]
 
                           return send(msg.chat_id_, 0, text)
-                        elseif (text:match("send") or text:match("ارسال") and msg.reply_to_message_id_ ~= 0) then
+                        elseif (text:match("send") or text:match("ارسال") or text:match("بفرس") and msg.reply_to_message_id_ ~= 0) then
                           local list = redis:smembers("botBOT-IDsupergroups") 
                           local id = msg.reply_to_message_id_
 
@@ -387,7 +388,7 @@ function get_bot (i, adigram)
                                   elseif text:match("(say) (.*)") or text:match("(بگو) (.*)") then
                                     local matches = text:match("say (.*)") or text:match("بگو (.*)")
                                     return send(msg.chat_id_, 0, matches)
-                                  elseif text:match("(addallgap) (%d+)") or text:match("(اضافه کردن) (%d+)") then
+                                  elseif text:match("(addallgap) (%d+)") or text:match("(اضافه کردن) (%d+)") or text:match("(برو) (%d+)") then
                                     local matches = text:match("%d+")
                                     local list = {redis:smembers("botBOT-IDgroups"),redis:smembers("botBOT-IDsupergroups")}
                                     for a, b in pairs(list) do
@@ -434,7 +435,7 @@ function get_bot (i, adigram)
                                           else
                                             return send (msg.chat_id_, msg.id_, "<code>✔️ این ای دی تو لیست نبود ⁉️⁉️ </code>\n")
                                           end
-                                        elseif text:match("لیست") or text:match("list") or text:match("ای دی") then
+                                        elseif text:match("list") or text:match("^(لیست)$") or text:match("^(11)$") then
                                           local mybots = redis:smembers ("botBOT-IDmybots") 
                                           local tt = "اد لیست گروهی ربات \n  \n 🔲 addallmybots \n  🔳 اد شدن ای دی های زیر به سوپر گروههای ربات  \n 🔲 addmybot 🆔(ID) \n 🔳 اضافه کردن ای دی به این لیست \n 🔲 delmybot 🆔(ID) \n 🔳 حذف ای دی از این لیست \n \n 🅰➿➿➿➿➿ \n 349469421 \n 🅰➿➿➿➿➿"
                                           for i, v in pairs(mybots) do
@@ -454,7 +455,7 @@ function get_bot (i, adigram)
                                           elseif text:match("([Hh]elp)") then
                                             local txt = '<code>🚩راهنمای دستورات تبچی 🚩</code>\n#english\n➖➖➖➖➖\n\n/stats\n🚦دریافت امار ربات\n\n/time [زمان]\n💭فاصله بین ارسال در هر گروه را تایین کنید\nپیش نهاد ما به شما برای جلوگیری از حذف اکانت ربات توسط تلگرام تنظیم زمان به 5 ثانیه میباشد\n\n/maxgap [عدد]\n💭حد اکثر گروه های تبچی خود را تایین کنید پیش نهاد ما 400 گروه است\n\n/setowner [ریپلای | ایدی]\n💭تنظیم فرد به عنوان مدیر ربات🤖\n\n/remowner [ریپلای | ایدی]\n💭جذف فرد از مقام مدیر ربات😦\n\n/refresh\n💭بارگزاری مجدد امار ربات\nبهتر است در روز بیش از یک بار استفاده نشود🔃\n\n/reload\n💭ریست کردن و بارگزاری مجدد کامل ربات حد المقدور استفاده شود☺️\n\n/markread [on | off]\n💭روشن  و خاموش کردن بازدید[تیک دوم] برای پیام ها👁\n\n/send [ریپلای | متن]\n💭فوروارد یا ارسال پیام به همه ی سوپر گروه ها\nمیتوانید روی پیام ریپلای کنید یا متن خود را قرار دهید✨\n\n/setname [نام اول نام دوم]\n💭تنظیم نام ربات🙄\nمثال : 🔸 setname atash2012 🔹\n\n/setusername [متن]\n💭تنظیم یوزرنیم ربات💫\n\n/delusername\n💭حذف یوزرنیم ربات🗑\n\n/say [متن]\n💭گفتن کلمه مورد نظر توسط ربات فقط در چتی که دستور داده شود✔️\n\n/online\n💭اطمینان از انلاین بودن ربات😃\n\n/addallgap [ایدی]\n💭اضافه کردن فرد به همه ی سوپر گروه های ربات\n🔸برای افزودن ربات api کافیست ان را استارت و سپس شناسه ابتدای توکن رو به جای ایدی وارد کنید🔹\n\n➖➖➖➖\n🔹ربات دارای دستورات فارسی نیز هست که شما میتوانید با نوشتن [راهنما] ان را دریافت کنید\n\n🔸شما میتوانید در ابتدای دستورات به جای [/] از [!] , [#] نیز استفاده کنید یا اصلا بدون علامت استفاده کنید🎯\n\n⚠️ربات به صورت خودکار وارد لینک ها میشود و همچنین افزودن مخاطب غیر فعال میباشد و درصورتی که مخاطب توسط شما ارسال شود [شیر شود] ربات ان را به لیست مخاطب ها اضافه میکند\n➖➖➖\n📍ادرس گیت هاب سورس :https://github.com/atash2012/tabchi\n'
                                             return send(msg.chat_id_,msg.id_, txt)
-                                          elseif text:match("(راهنما)") then
+                                          elseif text:match("^(راهنما)$") or text:match("^(2)$") then
                                             local txt = '<code>🚩راهنمای دستورات تبچی 🚩</code>\n#persian\n➖➖➖➖➖\n\nامار\n🚦دریافت امار ربات\n\nزمان [عدد]\n💭فاصله بین ارسال در هر گروه را تایین کنید\nپیش نهاد ما به شما برای جلوگیری از حذف اکانت ربات توسط تلگرام تنظیم زمان به 5 ثانیه میباشد\n\nحداکثر سوپرگروه [عدد]\n💭حد اکثر گروه های تبچی خود را تایین کنید پیش نهاد ما 400 گروه است\n\nافزودن مدیر [ریپلای | ایدی]\n💭تنظیم فرد به عنوان مدیر ربات🤖\n\nحذف مدیر [ریپلای | ایدی]\n💭جذف فرد از مقام مدیر ربات😦\n\nبازرسی\n💭بارگزاری مجدد امار ربات\nبهتر است در روز بیش از یک بار استفاده نشود🔃\n\nریست\n💭ریست کردن و بارگزاری مجدد کامل ربات حد المقدور استفاده شود☺️\n\nبازدید [خاموش | روشن]\n💭روشن  و خاموش کردن بازدید[تیک دوم] برای پیام ها👁\n\nارسال [ریپلای | متن]\n💭فوروارد یا ارسال پیام به همه ی سوپر گروه ها\nمیتوانید روی پیام ریپلای کنید یا متن خود را قرار دهید✨\n\nتنظیم نام [نام اول نام دوم]\n💭تنظیم نام ربات🙄\nمثال : 🔸 تنظیم نام atash2012 🔹\n\nتنظیم یوزرنیم [متن]\n💭تنظیم یوزرنیم ربات💫\n\nحذف یوزرنیم\n💭حذف یوزرنیم ربات🗑\n\nبگو [متن]\n💭گفتن کلمه مورد نظر توسط ربات فقط در چتی که دستور داده شود✔️\n\nانلاینی\n💭اطمینان از انلاین بودن ربات😃\n\nاضافه کردن [ایدی]\n💭اضافه کردن فرد به همه ی سوپر گروه های ربات\n🔸برای افزودن ربات api کافیست ان را استارت و سپس شناسه ابتدای توکن رو به جای ایدی وارد کنید🔹\n\n➖➖➖➖\n🔹ربات دارای دستورات انگلیسی نیز هست که شما میتوانید با نوشتن [help] ان را دریافت کنید\n\n⚠️ربات به صورت خودکار وارد لینک ها میشود و همچنین افزودن مخاطب غیر فعال میباشد و درصورتی که مخاطب توسط شما ارسال شود [شیر شود] ربات ان را به لیست مخاطب ها اضافه میکند\n➖➖➖\n📍ادرس گیت هاب سورس :https://github.com/atash2012/tabchi\n'
                                             return send(msg.chat_id_,msg.id_, txt)
                                           end
