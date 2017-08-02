@@ -16,7 +16,7 @@ function get_admin ()
   if redis:get('botBOT-IDadminset') then
     return true
   else
-    print("sudo id :\n ای دی ادمین را بفرس:")
+    print("ای دی ادمین ربات را بنویس : \n sudo id :")
     admin=io.read()
     redis:del("botBOT-IDadmin")
     redis:sadd("botBOT-IDadmin", admin)
