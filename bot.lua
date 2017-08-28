@@ -311,7 +311,7 @@ function get_bot (i, adigram)
 🆗➡️🚥  <b>]] .. tostring(ss)..[[</b><code> seconds </code> 
 ⏲ مدت زمان بین هر ارسال : 
 🆗➡️🚥  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
-🚦 سقف عضویت در سوپرگروه ها ⁉️ 
+🚦سقف عضویت در سوپرگروه ها⁉️ 
 🅰🔜🚥  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
   🔧 ویرایش ⚙
 🆔Ⓜ @atash2012]]
