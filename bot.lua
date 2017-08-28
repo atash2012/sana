@@ -297,10 +297,10 @@ function get_bot (i, adigram)
 🎎 گروههای معمولی : 
 🆗➡️🚥  <b>]] .. tostring(gps) .. [[</b><code> Groups </code>  
 👭👬 سوپر گروه ها : 
-🆗➡️🚥  <b>]] .. tostring(sgps) .. [[</b>Groups 💪
+🆗➡️🚥  <b>]] .. tostring(sgps) .. [[</b> Groups 💪
 ⛓💾 لینک های ذخیره شده : 
 🆗➡️🚥  <b>]] .. tostring(links)..[[</b><code> links </code>  
-↪️لینک های استفاده شده : 
+ تعداد لینک های در انتظار عضویت:
 🆗➡️🚥  <b>]] .. tostring(glinks)..[[</b><code> links </code> 
 📊 تعداد لینک های در انتظار تایید: 
 🆗➡️🚥  <b>]] .. tostring(wlinks)..[[</b><code> links </code> 
