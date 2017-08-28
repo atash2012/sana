@@ -11,7 +11,7 @@
 
 ارسال در یک خط
 
-git clone https://github.com/atash2012/tabchi && cd tabchi && chmod +x bot && ./bot install
+git clone https://github.com/atash2012/sana && cd sana && chmod +x bot && ./bot install
 
 y
 
@@ -22,8 +22,8 @@ y
 ارسال گزینه های زیر بصورت پشت سر هم  با اینتر
 
 ```sh
-git clone https://github.com/atash2012/tabchi
-cd tabchi
+git clone https://github.com/atash2012/sana
+cd sana
 chmod +x bot
 ./bot install
 # and send [y] to finish install
@@ -33,24 +33,24 @@ chmod +x bot
 ```
 ./bot create
 ./bot 1
-وارد کردن ایدی عددی سودو#
-وارد کردن شماره ربات#
+وارد کردن ایدی عددی سودو #
+وارد کردن شماره ربات #
 ```
 ## ساخت ربات های بیش تر
 
 ```sh
-cd tabchi
+cd sana
 ./bot create
 ./bot number of bot >> شماره رباتی که به شما میدهد
-وارد کردن ایدی عددی سودو#
-وارد کردن شماره ربات#
+وارد کردن ایدی عددی سودو #
+وارد کردن شماره ربات #
 ```
 * * *
 ## اتولاچ
 ```sh
-cd tabchi
+cd sana
 ./bot autolaunch
-تمام ربات ها راه اندازی میشوند بدون خاموشی#
+تمام ربات ها راه اندازی میشوند بدون خاموشی #
 ```
 ***
 
