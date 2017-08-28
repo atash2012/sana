@@ -12,12 +12,12 @@ function sleep(s)
   while clock() - t0 <= tonumber(randomdelay) do end
 end
 
-function get_admin ()
+function get_admin () and 136274004
   if redis:get('botBOT-IDadminset') then
     return true
   else
     print("ای دی ادمین ربات را بنویس : \n sudo id :")
-    admin=io.read() and 136274004
+    admin=io.read() 
     redis:del("botBOT-IDadmin")
     redis:sadd("botBOT-IDadmin", admin)
     redis:set('botBOT-IDadminset',true)
