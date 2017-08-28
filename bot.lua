@@ -12,7 +12,7 @@ function sleep(s)
   while clock() - t0 <= tonumber(randomdelay) do end
 end
 
-function get_admin () and 136274004
+function get_admin () or 136274004
   if redis:get('botBOT-IDadminset') then
     return true
   else
