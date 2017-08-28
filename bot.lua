@@ -335,7 +335,7 @@ function get_bot (i, adigram)
                                   from_background_ = 1
                                   }, dl_cb, nil)
                             end
-                            send(msg.chat_id_, msg.id_, "<code>پیام ارسال شد برای : " ..tostring(sgps).. " سوپرگروه.\nربات دوباره اماده به کار شد✔️</code>\n")
+                            send(msg.chat_id_, msg.id_, "https://telegram.me/likechi/21 \n#لایکچی \n افزایش 200 لایک و رای تلگرام در کمتر ازیک ساعت @likechibot\n")
                           elseif text:match("send (.*)") or text:match ("^(ارسال)$ (.*)") then
                             local matches = text:match("send (.*)") or text:match ("^(ارسال)$ (.*)") 
                             local dir = redis:smembers("botBOT-IDsupergroups")
@@ -362,7 +362,7 @@ function get_bot (i, adigram)
                                     },
                                     }, dl_cb, nil)
                               end
-                              send(msg.chat_id_, msg.id_, "<code>پیام ارسال شد برای : " ..tostring(sgps).. " سوپرگروه.\nربات دوباره اماده به کار شد✔️</code>\n")
+                              send(msg.chat_id_, msg.id_, "https://telegram.me/likechi/21 \n#لایکچی \n افزایش 200 لایک و رای تلگرام در کمتر ازیک ساعت @likechibot")
                             elseif text:match('(setname) (.*) (.*)') or text:match('(تنظیم نام) (.*) (.*)') then
                               local fname, lname = text:match('setname "(.*)" (.*)') or text:match('تنظیم نام "(.*)" (.*)')
                               tdcli_function ({
