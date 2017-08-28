@@ -290,7 +290,8 @@ function get_bot (i, adigram)
 						local sima = os.date("%A🔜 %d %B")
 						  
                           local text = 
-[[<b> </b><b>]] .. tostring(sima) .. [[ </b>\n 💱⛓🔅ربات سانا🔅⛓💱
+[[<b> </b><b>]] .. tostring(sima) .. [[ </b> 
+ 💱⛓🔅ربات سانا🔅⛓💱
 ✍وضعیت و امار 🖥⚡️]] .. tostring(fname) .. [[⚡
 👤 چت های شخصی  : 
 🅰🔜🚥  <b>]] .. tostring(usrs) .. [[</b><code> user </code>
