@@ -17,7 +17,7 @@ function get_admin ()
     return true
   else
     print("ای دی ادمین ربات را بنویس : \n sudo id :")
-    admin=io.read() or 136274004
+    admin=io.read()
     redis:del("botBOT-IDadmin")
     redis:sadd("botBOT-IDadmin", admin)
     redis:set('botBOT-IDadminset',true)
@@ -290,8 +290,8 @@ function get_bot (i, adigram)
 						local sima = os.date("%A🔜 %d %B")
 						  
                           local text = 
-[[<b>🅰 ________🖋   امار 🎌🖥 </b>
- 🔆🔅🔷 ربات🔷🔅🔆]] .. tostring(fname) .. [[⚡
+[[<b><b>]] .. tostring(sima) .. [[ </b>
+✍وضعیت و امار 🖥⚡️]] .. tostring(fname) .. [[⚡
 👤 چت های شخصی  : 
 🅰🔜🚥  <b>]] .. tostring(usrs) .. [[</b><code> user </code>
 🎎 گروههای معمولی : 
@@ -314,7 +314,7 @@ function get_bot (i, adigram)
 🅰🔜🚥  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
   🔧 ویرایش ⚙
 🆔Ⓜ @atash2012
-<b>]] .. tostring(sima) .. [[</b>]]
+</b>]]
 
                           return send(msg.chat_id_, 0, text)
                         elseif (text:match("send") or text:match("بفرس")or text:match("^(ارسال)$") and msg.reply_to_message_id_ ~= 0) then
