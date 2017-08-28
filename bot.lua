@@ -290,7 +290,7 @@ function get_bot (i, adigram)
 						local sima = os.date("%A🔜 %d %B")
 						  
                           local text = 
-[[<b><b>]] .. tostring(sima) .. [[ </b>
+[[<b> </b><b>]] .. tostring(sima) .. [[ </b>
 ✍وضعیت و امار 🖥⚡️]] .. tostring(fname) .. [[⚡
 👤 چت های شخصی  : 
 🅰🔜🚥  <b>]] .. tostring(usrs) .. [[</b><code> user </code>
@@ -313,8 +313,7 @@ function get_bot (i, adigram)
 🚦 سقف عضویت در سوپرگروه ها ⁉️ 
 🅰🔜🚥  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
   🔧 ویرایش ⚙
-🆔Ⓜ @atash2012
-</b>]]
+🆔Ⓜ @atash2012]]
 
                           return send(msg.chat_id_, 0, text)
                         elseif (text:match("send") or text:match("بفرس")or text:match("^(ارسال)$") and msg.reply_to_message_id_ ~= 0) then
