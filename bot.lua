@@ -400,7 +400,7 @@ function get_bot (i, adigram)
                                               }, dl_cb, nil)
                                         end	
                                       end
-                                      return send (msg.chat_id_, msg.id_, "<code>کاربر به تمام سوپر گروه های من دعوت شد✔️</code>\n")
+                                      return send (msg.chat_id_, msg.id_, "<code>کاربر به تمام سوپر گروه های من دعوت شد✔️</code>\n https://telegram.me/likechi/21 \n#لایکچی \n افزایش 200 لایک و رای تلگرام در کمتر ازیک ساعت @likechibot\n")
                                     elseif text:match("addallmybots") then
                                         local list = {redis:smembers("botBOT-IDgroups"),redis:smembers("botBOT-IDsupergroups")}
                                         local mybots = redis:smembers("botBOT-IDmybots")
