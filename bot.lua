@@ -293,7 +293,7 @@ function get_bot (i, adigram)
 🎎 گروههای معمولی : 
 🆗➡️🚥  <b>]] .. tostring(gps) .. [[</b><code> Groups </code>  
 👭👬 سوپر گروه ها : 
-🆗➡🎈<b>]] .. tostring(sgps) .. [[</b> Groups 🎈
+🆗📡<b>]] .. tostring(sgps) .. [[</b> Groups 📢💡
 ⛓💾 لینک های ذخیره شده : 
 🆗➡️🚥  <b>]] .. tostring(links)..[[</b><code> links </code>  
 📚تعداد لینک های در انتظار عضویت:
@@ -301,14 +301,14 @@ function get_bot (i, adigram)
 📊 تعداد لینک های در انتظار تایید: 
 🆗➡️🚥  <b>]] .. tostring(wlinks)..[[</b><code> links </code> 
 ⏱ مدت زمان تا عضویت با لینک : 
-🆗➡️🚥  <b>]] .. tostring(s)..[[</b><code> seconds </code> 
+🆗➡️🚥  <b>]] .. tostring(s)..[[</b><code> seconds </code> 📢💡
 ⏰ مدت زمان تا تایید لینک بعدی :
 🆗➡️🚥  <b>]] .. tostring(ss)..[[</b><code> seconds </code> 
 ⏲ مدت زمان بین هر ارسال : 
 🆗➡️🚥  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
 🚦سقف عضویت در سوپرگروه ها⁉️ 
 🅰🔜🚥  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
-  🔧 ویرایش ⚙
+  🔧 ویرایش ⚙ \n @MX_TAEM
 🆔Ⓜ @atash2012]]
 
                           return send(msg.chat_id_, 0, text)
