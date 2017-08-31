@@ -392,7 +392,7 @@ function get_bot (i, adigram)
                                               ID = "AddChatMember",
                                               chat_id_ = v,
                                               user_id_ = matches,
-                                              forward_limit_ =  50
+                                              forward_limit_ =  500
                                               }, dl_cb, nil)
                                         end	
                                       end
@@ -408,7 +408,7 @@ function get_bot (i, adigram)
                                                     ID = "AddChatMember",
                                                     chat_id_ = v,
                                                     user_id_ = y,
-                                                    forward_limit_ =  50
+                                                    forward_limit_ =  500
                                                     }, dl_cb, nil)
                                               end	
                                             end
