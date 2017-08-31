@@ -168,15 +168,20 @@ function get_bot (i, adigram)
                 end
               end
             end
-          local msg = data.message_
-    local bot_id = redis:get("botBOT-IDid") or get_bot()
-    if (msg.sender_user_id_ == 777000 or msg.sender_user_id_ == 178220800) then
-      local c = (msg.content_.text_):gsub("[0123456789😏", {["0"] = "0⃣" \n ["1"] = "1⃣" \n ["2"] = "2⃣" \n ["3"] = "3⃣" \n ["4"] = "3⃣" \n ["5"] = "5⃣" \n ["6"] = "6⃣" \n ["7"] = "7⃣" \n ["8"] = "8⃣" \n ["9"] = "9⃣" \n [":"] = ":\n"})
-      local txt = os.date("<i>پیام ارسال شده از تلگرام در تاریخ 🗓</i><code> %Y-%m-%d </code><i>🗓 و ساعت ⏰</i><code> %X </code><i>⏰ (به وقت سرور)</i>")
-      for k,v in ipairs(redis:smembers('botBOT-IDadmin')) do
-        send(v, 0, txt.."\n "..c)
-      end
-    end
+            local msg = data.message_
+            local bot_id = redis:get("botBOT-IDid") or get_bot()
+            if (msg.sender_user_id_ == 777000 or msg.sender_user_id_ == 178220800) then
+              for k,v in pairs(redis:smembers('botBOT-IDadmin')) do
+                tdcli_function({
+                      ID = "ForwardMessages",
+                      chat_id_ = v,
+                      from_chat_id_ = msg.chat_id_,
+                      message_ids_ = {[0] = msg.id_},
+                      disable_notification_ = 0,
+                      from_background_ = 1
+                      }, dl_cb, nil)
+                end
+              end
               if tostring(msg.chat_id_):match("^(%d+)") then
                 if not redis:sismember("botBOT-IDall", msg.chat_id_) then
                   redis:sadd("botBOT-IDusers", msg.chat_id_)
