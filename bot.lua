@@ -306,9 +306,10 @@ function get_bot (i, adigram)
 🆗➡️🚥  <b>]] .. tostring(ss)..[[</b><code> seconds </code> 
 ⏲ مدت زمان بین هر ارسال : 
 🆗➡️🚥  <b>]] .. tostring(delay)..[[</b><code> seconds </code>  
-🚦سقف عضویت در سوپرگروه ها⁉️ 
+🔁سقف عضویت در سوپرگروه ها⁉️ 
 🅰🔜🚥  <b>]] .. tostring(maxsg)..[[</b><code> Groups  </code>  
-  🔧 ویرایش ⚙ \n @MX_TAEM
+  🔧 ویرایش ⚙ 
+  @MX_TAEM
 🆔Ⓜ @atash2012]]
 
                           return send(msg.chat_id_, 0, text)
